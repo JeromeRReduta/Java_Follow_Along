@@ -16,4 +16,12 @@ public class Rectangle {
     public double calculateArea() {
         return length * width;
     }
+
+    public double getLength() {
+        return this.length;
+    }
+
+    public double getWidth() {
+        return this.width;
+    }
 }
