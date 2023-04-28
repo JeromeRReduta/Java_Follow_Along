@@ -8,27 +8,18 @@ public class GradeMessage {
         Scanner scan = new Scanner(System.in);
         String grade = scan.next();
         scan.close();
-        String message;
-        switch(grade) {
-            case "A":
-                message = "AMAZING";
-                break;
-            case "B":
-                message = "Nice";
-                break;
-            case "C":
-                message = "OKAY!";
-                break;
-            case "D":
-                message = "Do better";
-                break;
-            case "F":
-                message = "failed";
-                break;
-            default:
-                message = "Error";
-                break;
-        }
+        /* Switch expressions usually better if assigning */
+        String message = switch(grade) {
+            case "A" -> "Amazing!";
+            case "B" -> "NICE";
+            case "C" -> "OKAY";
+            case "D" -> "DO BETTER";
+            case "F" -> "FAILED";
+            default -> {
+                System.out.println("What have you done");
+                yield "ERROR";
+            }
+        };
         System.out.println(message);
     }
 }
