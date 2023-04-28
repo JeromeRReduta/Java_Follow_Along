@@ -13,14 +13,18 @@ public class InstantCreditCheck {
         int creditScore = scan.nextInt();
         scan.close();
         /* Check if user is qualified */
-        isUserQualified(salary, creditScore);
+        boolean isQualified = isUserQualified(salary, creditScore);
+        notifyUser(isQualified);
     }
 
-    public static void isUserQualified(double salary, int creditScore) {
+    public static boolean isUserQualified(double salary, int creditScore) {
         double requiredSalary = 25000;
         int requiredCreditScore = 700;
-        boolean isQualified = salary >= requiredSalary
+        return salary >= requiredSalary
                 && creditScore >= requiredCreditScore;
+    }
+
+    public static void notifyUser(boolean isQualified) {
         String message = isQualified ? "Approved" : "Declined";
         System.out.println(message);
     }
