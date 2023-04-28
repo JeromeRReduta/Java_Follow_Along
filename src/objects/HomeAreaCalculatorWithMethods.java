@@ -13,9 +13,15 @@ public class HomeAreaCalculatorWithMethods {
         System.out.printf("Combined area is %f\n", totalArea);
     }
 
-    public static double calculateTotalArea(Rectangle rect1, Rectangle rect2) {
-        return rect1.calculateArea()
-                + rect2.calculateArea();
+    /* ...varName = 0 or more varNames, put in an array
+        Will also accept an array
+     */
+    public static double calculateTotalArea(Rectangle ...rects) {
+        double total = 0;
+        for (Rectangle rect : rects) {
+            total += rect.calculateArea();
+        }
+        return total;
     }
 
     public static Rectangle getRoom() {
